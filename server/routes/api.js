@@ -3,13 +3,14 @@ const router = express.Router()
 const Movie = require('../models/Movie')
 const request = require("request")
 const apiKey = "5bb8146f0252abc6e5b24ae35e939485"
+// https://api.themoviedb.org/3/movie/558?api_key=5bb8146f0252abc6e5b24ae35e939485
 
 router.get('/test', function (req, res) {
     res.send("Hello")
 })
 
 
-//getting a json about a movie
+//getting a json of movies from a movie by name
 router.get('/movie/:movieName', function (req, res) {
     let movieName = req.params.movieName
 
@@ -17,6 +18,16 @@ router.get('/movie/:movieName', function (req, res) {
         let movieData = JSON.parse(response.body)
         let filteredData = movieData.results
         res.send(filteredData)
+    })
+})
+
+
+//getting a json about a movie by id
+router.get('/movies/:movieID', function (req, res) {
+    let movieID = req.params.movieID
+    request(`https://api.themoviedb.org/3/movie/${movieID}?api_key=5bb8146f0252abc6e5b24ae35e939485`, function (err, response) {
+        let ChosenData = JSON.parse(response.body)
+        res.send(ChosenData)
     })
 })
 

@@ -4,6 +4,7 @@ class httpService {
     constructor() {
         this.movieData = []
         this.favoriteData = []
+        this.chosenData = []
     }
 
 
@@ -15,7 +16,8 @@ class httpService {
 
     async getMovieData(movieName) { 
         const res = await $.get(`/movie/${movieName}`)
-        
+            this.movieData = []
+
         for (let movie of res){
             if(movie.poster_path){
                this.movieData.push({
@@ -28,6 +30,18 @@ class httpService {
             console.log(this.movieData)
     }
 
+
+    async getChosenData(movieID) { 
+        const res = await $.get(`/movies/${movieID}`)
+            this.chosenData = []
+
+            this.chosenData.push({
+                    id: res.id,
+                    title: res.title,
+                    rating: res.vote_average,
+                    poster: res.poster_path
+                })}
+   
 
     async saveMovie(movieID) {  
         for (let movie of this.movieData) {

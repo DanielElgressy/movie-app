@@ -14,6 +14,7 @@ $("#show").on("click", function () {
 
 
 const handleSearch = async function (input) {
+    // $("#data").empty()
     let data = await hService.getMovieData(input)
     render.rendererData(hService.movieData)
     $("#movie-input").val("")
@@ -51,3 +52,22 @@ $("#data").on("click", "#deleteMovie", function () {
     hService.removeMovie(movieID)
     render.rendererData(hService.movieData)
 })
+
+
+
+
+$("#data").on("click", "#img", function () {
+    let movieID = $(this).closest(".movie").find("#movieID").text()
+
+    // console.log(movieIMG)
+    console.log(movieID)
+
+    let dataChosen = hService.getChosenData(movieID)
+    render.rendererChosen(hService.chosenData)
+
+
+    // hService.saveMovie(movieID)
+    // alert(`${movieName} saved in DB`)
+
+})
+
