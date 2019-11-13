@@ -49,5 +49,5 @@ $("#data").on("click", "#deleteMovie", function () {
     let movieName = $(this).closest(".movie").find("#movieName").text()
 
     hService.removeMovie(movieID)
-    render.rendererData(hService.favoriteData)
+    render.rendererData(hService.movieData)
 })
