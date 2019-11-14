@@ -23,7 +23,7 @@ const handleSearch = async function (input) {
 
 const loadFavorite = async () => {
     await hService.getDataFromDB()
-    render.rendererData(hService.favoriteData)
+    render.rendererDataFavo(hService.favoriteData)
 }
 
 $("#container").on("click", "#favoriteMovies", function () {
@@ -32,9 +32,9 @@ $("#container").on("click", "#favoriteMovies", function () {
 
 
 
-$("#data").on("click", "#saveMovie", function () {
-    let movieID = $(this).closest(".movie").find("#movieID").text()
-    let movieName = $(this).closest(".movie").find("#movieName").text()
+$("#chosenData").on("click", "#saveMovie1", function () {
+    let movieID = $(this).closest(".movies").find("#movieID1").text()
+    let movieName = $(this).closest(".movies").find("#movieName1").text()
 
     console.log(movieID)
     console.log(movieName)
@@ -45,7 +45,7 @@ $("#data").on("click", "#saveMovie", function () {
 })
 
 
-$("#data").on("click", "#deleteMovie", function () {
+$("#chosenData").on("click", "#deleteMovie", function () {
     let movieID = $(this).closest(".movie").find("#movieID").text()
     let movieName = $(this).closest(".movie").find("#movieName").text()
 

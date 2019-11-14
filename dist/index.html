@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <script src="https://kit.fontawesome.com/0c25c19dc4.js" crossorigin="anonymous"></script>
     <title>Netmix</title>
 </head>
-
 <body>
 
+        <img id="imgback" src=https://i1.wp.com/argylebandboosters.com/wp-content/uploads/2019/03/videoblocks-animation-of-stars-background-seamless-loop_bx3pbkf9f_thumbnail-full07.png?ssl=1>
 
     <div id="container">
-        <h1>Movie App</h1>
         <input type="text" id="movie-input" value="spiderman" placeholder="Type Movie Titel">
         <button id="show">show</button>
         <button id="favoriteMovies" >favorite</button>
@@ -23,20 +23,21 @@
     </div>
     
     <div id="chosenData"> </div>
-
+    <div id="favoData"> </div>
+ 
 
     <div id="data"> </div>
-    
 
 
-    <script id="result-template" type="text/x-handlebars-template">
-
+    <script id="results-template" type="text/x-handlebars-template">
+        
+        <div id="favtext"> <p>Favorite Movies</p></div>
             {{#each movieData}}
 
                 <div class="movie">
-                    <div id="movieID">{{id}}</div>
-                    <div id="movieName">{{title}}</div>
-                    <div id="movieRating">{{rating}}</div>
+                    <div id="movieID" style="display: none">{{id}}</div>
+                    <div id="movieName" style="display: none">{{title}}</div>
+                    <div id="movieRating" style="display: none">{{rating}}</div>
 
                     <div id="moviePoster">
                         <img id="img" src=http://image.tmdb.org/t/p/w500{{poster}}>
@@ -44,10 +45,12 @@
            
         
                     {{#if _id}}
-                    <button class="button2" id="deleteMovie">x</button>
+                    <button class="button2" id="deleteMovie" style="display: none">x</button>
                     {{/if}}
                     {{#unless _id}}
-                    <button class="button1" id="saveMovie" >+</button>
+                    
+
+                    <button class="button1" id="saveMovie" style="display: none"></button>
                     {{/unless}}
                 </div>
             {{/each}}
@@ -55,9 +58,37 @@
 
 
 
+
+        <script id="result-template" type="text/x-handlebars-template">
+            {{#each movieData}}
+
+                <div class="movies">
+                    <div id="movieID1" style="display: none">{{id}}</div>
+                    <div id="movieName1">{{title}}</div>
+                    <div id="movieRating1"><strong>Rating:</strong>{{rating}}</div>
+                    <div id="quality"><strong>HD</strong></div>
+
+
+                    <div id="moviePoster1">
+                        <img id="img" src=http://image.tmdb.org/t/p/w500{{poster}}>
+                    </div>
+           
+        
+                    {{#if _id}}
+                    <button class="button1" id="deleteMovie1">delete me</button>
+                    {{/if}}
+                    {{#unless _id}}
+                    <div id="saveMovie1"><i class="fas fa-heart"></i></div>
+
+                    {{/unless}}
+                </div>
+            {{/each}}
+        </script> 
+
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>
 
+    <!-- <button class="button1" id="saveMovie1" ><i class="fas fa-heart"></i></button> -->
 
 
     <script src="HttpService.js"></script>

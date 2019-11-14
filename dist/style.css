@@ -1,38 +1,164 @@
- /* #container{
-    display: grid;
-    grid-template-rows: 60% 40%;
-}
 
-#movie-input {
-width: 760px;
-padding: .375rem .75rem;
-font-size: 1rem;
-font-weight: 400;
-line-height: 1.5;
-outline: none;
-color: brown;
-background-color: none;
-border: 1px solid rgb(173, 151, 151);
-border-radius: .25rem;
-} */
- 
 body {
     display: grid;
     grid-template-columns: 30% 1000px;
-    height: 100%;
+    height: 1vh;
+    margin: 0;
+    padding: 0;
 }
-#data {
+
+#saveMovie1{
     position: absolute;
-    bottom: 10px;
-    display: flex;
-    width: 100%;
-    height: 50%;
-    overflow-x: auto;
+    color:rgb(179, 18, 18);
+    right: 40px;
+    top: 70px;
+    font-size: 50px;
+}
+
+#saveMovie1:hover{
+cursor: pointer;
+font-size: 54px;
+filter:brightness(120%)
+}
+
+#favtext{
+    position: absolute;
+    top: -50px;
+    z-index: 2;
 
 }
+
+#container{
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+    top:10px;
+}
+
+#data {
+    position: absolute;
+    bottom: 130px;
+    display: flex;
+    width: 100%;
+    height: 230px;
+    overflow-x: auto;
+    transition: 1ms;
+}
+.movie{
+padding: 2px;
+
+}
+.movie:hover {
+    border: 4px white solid;
+    cursor: pointer;
+}
+
 
 .movie img{
     width: 100px;
     overflow: hidden;
     height: 200px;
 } 
+.movies img{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    left: 5px;
+    top: 0.1px;
+    z-index: -10;
+    object-fit: cover;
+    object-position: 70% 70%;
+    box-shadow: 1px 2px 200px rgba(0, 0, 0, 0.473)
+} 
+
+
+.movies #movieName1{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    font-size: 45px;
+    font-family: sans-serif;
+    font-variant: small-caps;
+    color: white;
+    background-color: none;
+    letter-spacing: .1em;
+    text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #2e2e2e, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a, 
+      0 4px 0 #282828, 
+      0 5px 0 #262626, 
+      0 6px 0 #242424, 
+      0 7px 0 #222, 
+      0 8px 0 #202020, 
+      0 9px 0 #1e1e1e, 
+      0 10px 0 #1c1c1c, 
+      0 11px 0 #1a1a1a, 
+      0 12px 0 #181818, 
+      0 13px 0 #161616, 
+      0 14px 0 #141414, 
+      0 15px 0 #121212, 
+      0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+.movies #movieRating1{
+    position: absolute;
+    top: 130px;
+    left: 70px;
+    color: rgb(255, 255, 144);
+    text-shadow:   0 10px 10px rgb(0, 0, 0);
+}
+
+.movies #deleteMovie1{
+    position: absolute;
+    top: 40px;
+}
+
+.movies #saveMovie1{
+    position: absolute;
+    top: 50px;
+}
+
+#quality {
+    position: absolute;
+    top: 130px;
+    left: 150px;
+    color: white;
+    text-shadow:   0 10px 10px rgb(0, 0, 0);
+    background-color: rgb(71, 70, 70);
+    font-family: sans-serif;
+}
+
+
+#favoData {
+    position: absolute;
+    bottom: -180px;
+    display: flex;
+    width: 100%;
+    height: 230px;
+    overflow-x: auto;
+}
+
+#imgback{
+    z-index: -10000;
+    filter:brightness(50%)
+}
+
+#deleteMovie{
+font-size: 30px;
+}
+
+p{
+color: white;
+font-size: 30px;
+}
+
+
+#movie-input{
+    background: none;
+    border-bottom: 1.5px solid black;
+    height: 30px;
+    width:300px;
+    outline: none;
+}
